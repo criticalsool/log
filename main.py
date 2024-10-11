@@ -2,9 +2,13 @@ import argparse
 import logging
 import utils.log
 
+from rich import print
+
+# Import pour les tests
 from time import sleep
 
 def main():
+    # Tests pour le logging
     log.info("Info message")
     sleep(1)
     log.debug("Debug message")
@@ -26,10 +30,12 @@ def main():
 
 
 def parse_arguments():
+    # Instanciation du parser d'arguments
     parser = argparse.ArgumentParser(
                     prog='Log utility',
                     description="This program is a log parser utility using rich !")
 
+    # Ajout de l'option verbose
     parser.add_argument(
         "-v",
         "--verbose",
@@ -41,8 +47,15 @@ def parse_arguments():
 
 
 if __name__ == "__main__":
+    # Récupération des arguments
     args = parse_arguments()
+    # Initialisation du log
     utils.log.init_logging(args)
+    # Instanciation du log
     log = logging.getLogger('log')
+    # Startup print with emoji :)
+    print("[bold blue]Log utility[/bold blue]", ":memo:")
+    # If verbose
     if args.verbose: log.debug('Verbose mod activated')
+    # Start main function
     main()
