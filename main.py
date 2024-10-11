@@ -1,21 +1,8 @@
 import argparse
 import logging
 import utils.log
+
 from time import sleep
-
-def parse_arguments():
-    parser = argparse.ArgumentParser(
-                    prog='Log utility',
-                    description="This program is a log parser utility using rich !")
-
-    parser.add_argument(
-        "-v",
-        "--verbose",
-        action="store_true",
-        help="Increase log verbosity.",
-    )
-
-    return parser.parse_args()
 
 def main():
     log.info("Info message")
@@ -37,9 +24,25 @@ def main():
     except Exception:
         log.exception("Exception : unable print!")
 
+
+def parse_arguments():
+    parser = argparse.ArgumentParser(
+                    prog='Log utility',
+                    description="This program is a log parser utility using rich !")
+
+    parser.add_argument(
+        "-v",
+        "--verbose",
+        action="store_true",
+        help="Increase log verbosity.",
+    )
+
+    return parser.parse_args()
+
+
 if __name__ == "__main__":
     args = parse_arguments()
     utils.log.init_logging(args)
-    log = logging.getLogger('log example')
+    log = logging.getLogger('log')
     if args.verbose: log.debug('Verbose mod activated')
     main()
