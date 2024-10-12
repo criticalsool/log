@@ -3,12 +3,12 @@ from rich.logging import RichHandler
 
 
 def init_logging(args):
-    # Variables pour le logging
+    # Logging in file variables
     level=logging.DEBUG
     logfileFormat = "%(asctime)s %(levelname)-7s %(name)-4s %(message)s"
     logfileDateFormat = "[%d/%m/%Y %I:%M:%S]"
 
-    # Instanciation du log dans le fichier
+    # Logging in file setup
     fileHandler = logging.FileHandler('log.log')
     logfileFormatter = logging.Formatter(logfileFormat, logfileDateFormat)
     fileHandler.setFormatter(logfileFormatter)
