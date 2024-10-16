@@ -6,7 +6,7 @@ def init_logging(args):
     # Logging in file variables
     level=logging.DEBUG
     logfileFormat = "%(asctime)s %(levelname)-7s %(name)-4s %(message)s"
-    logfileDateFormat = "[%d/%m/%Y %I:%M:%S]"
+    logfileDateFormat = "[%d/%m/%Y %H:%M:%S]"
 
     # Logging in file setup
     fileHandler = logging.FileHandler('log.log')
